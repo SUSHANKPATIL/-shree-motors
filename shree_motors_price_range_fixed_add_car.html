@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shree Motors | Quality Pre-Owned Cars</title>
+<meta name="description" content="Shree Motors — quality pre-owned cars, best price, transparent deals and easy finance.">
+<style>
+:root{--red:#d71920;--black:#090909;--muted:#666;--bg:#f7f7f7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;color:#171717;background:#fff}
+a{text-decoration:none;color:inherit}.top{background:#050505;color:#fff;font-size:13px;padding:9px 5%;text-align:right}
+nav{position:sticky;top:0;z-index:20;background:#080808;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:16px 5%;box-shadow:0 4px 18px #0003}
+.logo{font-weight:900;font-size:27px}.logo span{color:var(--red)}.logo small{display:block;font-size:9px;letter-spacing:2px;color:#bbb}
+.navlinks{display:flex;gap:26px;font-size:13px;font-weight:800}.navlinks a:hover{color:#ff3b42}.call{border:1px solid var(--red);padding:10px 14px;border-radius:8px;font-weight:800}
+.hero{min-height:560px;background:radial-gradient(circle at 80% 55%,#3c3c3c,#111 45%,#050505);color:#fff;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;padding:60px 7%}
+.hero h1{font-size:64px;line-height:.98;margin:0 0 20px;text-transform:uppercase}.hero h1 span{color:var(--red)}.hero p{font-size:20px;color:#ddd;max-width:520px}
+.points{display:flex;gap:28px;margin-top:35px;font-size:13px;font-weight:800}.point b{color:#fff;font-size:22px;display:block}
+.hero-car{width:100%;max-width:680px;filter:drop-shadow(0 30px 30px #0009);border-radius:18px}
+.search{width:90%;margin:-35px auto 0;background:#fff;border-radius:18px;box-shadow:0 10px 35px #0002;padding:24px;position:relative;z-index:5}
+.filters{display:grid;grid-template-columns:repeat(3,1fr) 140px;gap:12px}select,input{padding:14px;border:1px solid #ddd;border-radius:8px;background:#fff;box-sizing:border-box}
+.btn{display:inline-block;padding:12px 16px;border-radius:8px;font-weight:900;text-align:center}.btn.red{background:var(--red);color:#fff}
+section{padding:70px 6%}.title{text-align:center;margin-bottom:38px}.title h2{font-size:36px;margin:0 0 8px}.title span{color:var(--red)}.title p{color:var(--muted)}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}.why div{padding:22px}.why strong{display:block;font-size:17px;margin:10px 0}.why p{color:var(--muted);font-size:14px;line-height:1.5}
+.stock{background:var(--bg)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.car-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 5px 20px #00000012;border:1px solid #eee}
+.car-photo{height:230px;background:linear-gradient(135deg,#222,#666);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.car-photo img{width:100%;height:100%;object-fit:cover}.badge{position:absolute;left:12px;top:12px;background:var(--red);color:#fff;padding:7px 10px;border-radius:5px;font-size:10px;font-weight:900}.coming{color:#fff;text-align:center;font-weight:900;letter-spacing:2px;font-size:22px}.coming span{font-size:11px;color:#bbb}
+.car-info{padding:18px}.car-info h3{margin:0 0 8px;font-size:20px}.meta{margin:5px 0;color:#777;font-size:13px}.price{font-size:24px;font-weight:950;color:var(--red);margin:14px 0}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.full-details{display:none;margin-top:14px;padding:14px;border-top:1px solid #eee;background:#fafafa;border-radius:10px}.full-details.show{display:block}.detail-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px}.detail-row:last-child{border-bottom:0}.detail-row b{color:#555}.details-btn{width:100%;margin-top:10px;background:#fff;border:1px solid #d71920;color:#d71920;padding:11px;border-radius:8px;font-weight:900;cursor:pointer}.dark{background:#111;color:#fff}.light{border:1px solid #ddd}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service{background:#111;color:#fff;border-radius:14px;padding:28px;min-height:150px}.service p{color:#bbb;line-height:1.5}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.about p{color:#666;line-height:1.7}.aboutbox{background:#111;color:#fff;border-radius:18px;padding:40px}
+.contact{background:#f4f4f4}.contactgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.contactbox{background:#fff;border-radius:16px;padding:30px}.contactbox a{color:var(--red);font-weight:900}
+footer{background:#050505;color:#aaa;text-align:center;padding:28px}footer strong{color:#fff}
+.thumbs{display:flex;gap:5px;padding:8px;background:#fff;overflow:auto}.thumbs{display:flex;gap:7px;padding:8px;background:#fff;overflow-x:auto}.photo-thumb-btn{flex:0 0 auto;border:2px solid transparent;background:#fff;padding:0;border-radius:7px;cursor:pointer}.photo-thumb-btn img{display:block;width:72px;height:56px;object-fit:cover;border-radius:5px}.photo-thumb-btn:hover,.photo-thumb-btn.selected{border-color:var(--red)}
+@media(max-width:900px){.navlinks{display:none}.hero{grid-template-columns:1fr;text-align:center}.hero h1{font-size:46px}.hero-car{margin-top:30px}.points{justify-content:center;flex-wrap:wrap}.filters{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}.why,.services{grid-template-columns:1fr 1fr}.about,.contactgrid{grid-template-columns:1fr}}
+@media(max-width:560px){.top{display:none}.logo{font-size:22px}.hero{min-height:620px;padding:45px 7%}.hero h1{font-size:39px}.hero p{font-size:16px}.filters,.grid,.why,.services{grid-template-columns:1fr}section{padding:48px 5%}.search{width:94%;padding:16px}}
+
+.admin-tools{display:flex;justify-content:flex-end;margin:-10px 0 18px}.admin-btn{border:1px solid #111;background:#111;color:#fff;padding:10px 14px;border-radius:8px;font-weight:900;cursor:pointer}.delete-btn{display:none;background:#111;color:#fff;border:1px solid #111;padding:8px 10px;border-radius:7px;font-weight:900;cursor:pointer}.admin-on .delete-btn{display:inline-block}.edit-btn{display:none;background:#fff;border:1px solid #d71920;color:#d71920;padding:8px 10px;border-radius:7px;font-weight:900;cursor:pointer}.admin-on .edit-btn{display:inline-block}.modal-backdrop{display:none;position:fixed;inset:0;background:#0009;z-index:100;align-items:center;justify-content:center;padding:18px}.modal-backdrop.show{display:flex}.edit-modal{background:#fff;width:min(620px,100%);max-height:90vh;overflow:auto;border-radius:16px;padding:24px;box-shadow:0 20px 60px #0006}.edit-modal h3{margin:0 0 18px;font-size:24px}.edit-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.edit-form label{font-size:12px;font-weight:900;color:#555}.edit-form input,.edit-form select{width:100%;margin-top:5px}.edit-actions{display:flex;gap:10px;margin-top:18px}.edit-actions button{flex:1;border:0;cursor:pointer}.cancel-btn{background:#eee;color:#111}.admin-note{display:none;color:#d71920;font-size:12px;font-weight:800;margin:0 0 12px}.admin-on .admin-note{display:block}@media(max-width:560px){.edit-form{grid-template-columns:1fr}}
+
+.wizard{display:flex;gap:8px;margin:0 0 18px}.wizard-step{display:block;text-decoration:none;flex:1;padding:9px 6px;border-radius:10px;background:#eee;color:#777;text-align:center;font-size:12px;font-weight:900}.wizard-step.active{background:#d71920;color:#fff}.wizard-page{display:block}.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.photo-box{border:1px solid #ddd;border-radius:12px;padding:10px;background:#fafafa}.photo-box label{font-size:13px;font-weight:800;display:block}.photo-box input{margin-top:7px;width:100%;font-size:12px}.photo-preview{margin-top:7px;height:74px;border-radius:8px;background:#eee;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#888;font-size:11px}.photo-preview img{width:100%;height:100%;object-fit:cover}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.detail-grid label{display:block}.detail-grid label.full{grid-column:1/-1}.detail-grid select,.detail-grid input{width:100%;box-sizing:border-box}.wizard-note{font-size:12px;color:#777;margin:8px 0 14px}.all-photo-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.all-photo-preview .photo-item{position:relative;height:100px;border-radius:9px;overflow:hidden;background:#eee;border:1px solid #ddd}.all-photo-preview img{width:100%;height:100%;object-fit:cover}.all-photo-preview .photo-label{position:absolute;left:5px;bottom:5px;background:rgba(0,0,0,.78);color:#fff;padding:4px 6px;border-radius:5px;font-size:10px;font-weight:800}@media(max-width:600px){.all-photo-preview{grid-template-columns:repeat(2,1fr)}}.wizard-actions{display:flex;gap:10px;margin-top:14px}.wizard-page{scroll-margin-top:18px}.wizard-page{scroll-margin-top:20px}.wizard-step.active{background:#d71920;color:#fff}.wizard-actions .btn{flex:1}.modal-scroll{max-height:72vh;overflow:auto;padding-right:3px}@media(max-width:600px){.photo-grid,.detail-grid{grid-template-columns:1fr}.detail-grid label.full{grid-column:auto}}
+.hero-car-placeholder{min-height:260px;border-radius:22px;background:linear-gradient(145deg,#1a1a1a,#090909);border:1px solid #252525;box-shadow:0 20px 50px rgba(0,0,0,.35)}.empty-stock{grid-column:1/-1;text-align:center;padding:45px 20px;border:1px dashed #ccc;border-radius:18px;background:#fafafa}.empty-stock .empty-icon{font-size:42px;margin-bottom:8px}.empty-stock h3{margin:8px 0;font-size:22px}.empty-stock p{color:#777;margin:0 0 18px}</style>
+</head><body>
+<div class="top">Call / WhatsApp: 9892021323 • 9420031833</div>
+<nav><a class="logo" href="#">SHREE <span>MOTORS</span><small>QUALITY PRE-OWNED CARS</small></a>
+<div class="navlinks"><a href="#home">HOME</a><a href="#stock">CARS IN STOCK</a><a href="#services">SELL YOUR CAR</a><a href="#contact">CONTACT US</a></div>
+<a class="call" href="tel:+919892021323">☎ 9892021323</a></nav>
+<header id="home" class="hero"><div><h1>FIND YOUR <span>PERFECT</span> CAR</h1><p>Quality pre-owned cars at the right price — with transparent deals and personal service.</p>
+<div class="points"><div class="point"><b>✓</b>QUALITY CHECKED</div><div class="point"><b>₹</b>BEST PRICE</div><div class="point"><b>↗</b>EASY FINANCE</div></div></div>
+<div class="hero-car-placeholder" aria-label="Quality pre-owned cars"></div></header>
+<div class="search">
+<div class="title" style="margin-bottom:18px"><h2 style="font-size:24px">FIND YOUR <span>DREAM CAR</span></h2></div>
+<div class="filters"><select id="brand"><option value="all">Brand</option><option>Maruti Suzuki</option><option>Hyundai</option><option>Tata</option><option>Mahindra</option><option>Toyota</option><option>Honda</option><option>Kia</option><option>MG</option><option>Renault</option><option>Nissan</option><option>Volkswagen</option><option>Skoda</option><option>Ford</option><option>Jeep</option><option>Citroen</option><option>Isuzu</option><option>Mitsubishi</option><option>Chevrolet</option><option>Fiat</option><option>Datsun</option><option>Audi</option><option>BMW</option><option>Mercedes-Benz</option><option>Volvo</option><option>Jaguar</option><option>Land Rover</option><option>Porsche</option><option>Lexus</option><option>Mini</option><option>BYD</option><option>Ola</option><option>Other</option></select><select id="fuel"><option value="all">Fuel Type</option><option>Petrol</option><option>Diesel</option><option>CNG</option><option>Petrol + CNG</option><option>Electric (EV)</option><option>Hybrid</option></select><select id="priceRange"><option value="all">Price Range</option><option value="0-500000">Under ₹5 Lakh</option><option value="500000-700000">₹5–7 Lakh</option><option value="700000-1000000">₹7–10 Lakh</option><option value="1000000-1500000">₹10–15 Lakh</option><option value="1500000-2000000">₹15–20 Lakh</option><option value="2000000+">₹20 Lakh+</option></select><button class="btn red" type="button" onclick="filterCars()">SEARCH</button></div></div>
+<section><div class="title"><h2>WHY CHOOSE <span>SHREE MOTORS?</span></h2><p>Simple buying. Honest pricing. Better cars.</p></div>
+<div class="why"><div>🏆<strong>QUALITY CARS</strong><p>Cars selected and presented with clear details.</p></div><div>₹<strong>BEST PRICE</strong><p>Competitive asking prices with transparent deals.</p></div><div>🤝<strong>TRUST & TRANSPARENCY</strong><p>No unnecessary confusion — clear communication.</p></div><div>☎<strong>AFTER SALES SUPPORT</strong><p>We stay available even after the sale.</p></div></div></section>
+<section id="stock" class="stock"><div class="title"><h2>CARS <span>IN STOCK</span></h2><p>Your current asking-price inventory.</p></div><div class="admin-tools"><button class="admin-btn" id="adminToggle" onclick="toggleAdmin()">🔐 ADMIN EDIT MODE</button><button class="admin-btn" id="addCarBtn" onclick="openAddCar()" style="display:inline-block;margin-left:8px;background:#d71920;border-color:#d71920">➕ ADD CAR</button></div><p class="admin-note">Edit mode is ON — changes are saved on this device for now.</p><div class="grid" id="carGrid"><div class="empty-stock" id="emptyStock"><div class="empty-icon">🚗</div><h3>No Cars Added Yet</h3><p>Your current inventory will appear here.</p><button class="btn red" type="button" onclick="openAddCar()">➕ ADD FIRST CAR</button></div>
+<article class="car-card" data-id="virtus_highline_plus_2023" data-price="1050000">
+<div class="car-photo"><img class="main-car-image" src="images/virtus-01-front.jpeg" alt="Volkswagen Virtus Highline Plus 6-Speed"><span class="badge">AVAILABLE</span></div>
+<div class="thumbs"></div>
+<div class="car-info"><h3>Volkswagen Virtus Highline Plus 6-Speed</h3><p class="meta">August 2023 • 41,000 km • Petrol</p><p class="meta">6-Speed Manual • Dark Grey</p><div class="price">₹10,50,000</div><div class="actions"><a class="btn dark" href="https://wa.me/919420031833">WhatsApp</a><button class="edit-btn" onclick="openEdit(this)">✏️ Edit</button><button class="delete-btn" onclick="deleteCar(this)">🗑️ Delete</button></div></div>
+</article></div></section>
+<section><div class="about"><div><div class="title" style="text-align:left"><h2>ABOUT <span>SHREE MOTORS</span></h2></div><p>Shree Motors is your pre-owned car partner. Our focus is simple: good cars, honest communication, competitive pricing and a smooth buying experience.</p><p>More vehicle photos, exact year, ownership, service history and final deal details can be added to each car page as your inventory grows.</p></div>
+<div class="aboutbox"><h2>SHREE MOTORS</h2><p>QUALITY PRE-OWNED CARS</p><p>📞 9892021323<br>📞 9420031833</p><a class="btn red" href="https://wa.me/919892021323">CHAT ON WHATSAPP</a></div></div></section>
+<section id="contact" class="contact"><div class="title"><h2>CONTACT <span>SHREE MOTORS</span></h2></div><div class="contactgrid">
+<div class="contactbox"><h3>Call / WhatsApp</h3><p><a href="tel:+919892021323">9892021323</a></p><p><a href="tel:+919420031833">9420031833</a></p><p>For availability, test drive, finance and final price.</p></div>
+<div class="contactbox"><h3>Quick Enquiry</h3><p>Send us the car name you like and we'll reply on WhatsApp.</p><a class="btn red" href="https://wa.me/919892021323?text=Hi%20Shree%20Motors%2C%20I%20want%20to%20know%20about%20a%20car">WHATSAPP NOW</a></div></div></section>
+<footer>© 2026 <strong>SHREE MOTORS</strong> • Quality Pre-Owned Cars</footer>
+
+<div class="modal-backdrop" id="addModal"><div class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="addTitle">
+<h3 id="addTitle">Add New Car</h3><form id="addForm" onsubmit="saveNewCar(event)">
+<div class="wizard"><a href="#addPagePhotos" id="addStepPhotos" class="wizard-step active">1. PHOTOS</a><a href="#addPageDetails" id="addStepDetails" class="wizard-step active">2. CAR DETAILS</a></div>
+<div class="modal-scroll">
+<section id="addPagePhotos" class="wizard-page active"><p class="wizard-note"><strong>सगळे car photos एकाच वेळी select कर.</strong> पहिला photo = Main, नंतर Front, Rear, Side, Interior, Dashboard; उरलेले Other Photos म्हणून save होतील.</p>
+<div class="photo-box" style="margin-bottom:14px"><label>Car Photos — Select All Photos</label><input id="aPhotosAll" type="file" accept="image/*" multiple required onchange="previewAllPhotos(this)"><div id="allPhotoPreview" class="all-photo-preview"><span>No photos selected</span></div></div>
+<div class="wizard-actions" style="position:sticky;bottom:0;background:#fff;padding:10px 0;z-index:2"><button type="button" class="btn cancel-btn" onclick="closeAddCar()">CANCEL</button><a class="btn red" href="#addPageDetails">NEXT → CAR DETAILS</a></div></section>
+<section id="addPageDetails" class="wizard-page" style="display:block;padding-top:18px;border-top:2px solid #eee;margin-top:18px"><p class="wizard-note"><strong>2. CAR DETAILS</strong> — details भर आणि शेवटी SAVE &amp; PUBLISH कर.</p>
+<div class="detail-grid">
+<label>Brand<select id="aBrand" required onchange="updateAddModels()"></select></label><label>Model<select id="aModel" required onchange="updateAddVariants()"></select></label><label>Variant<select id="aVariant" required></select></label>
+<label>Year<select id="aYear" required><option value="">Select Year</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option><option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option><option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option></select></label>
+<label>Kilometres<input id="aKm" inputmode="numeric" required></label><label>Fuel<select id="aFuel" required><option>Petrol</option><option>Diesel</option><option>CNG</option><option>Electric</option><option>Hybrid</option></select></label>
+<label>Transmission<select id="aTrans" required><option>Manual</option><option>Automatic</option><option>AMT</option><option>CVT</option><option>DCT</option></select></label>
+<label>Colour<select id="aColour" required><option value="">Select Colour</option><option>White</option><option>Black</option><option>Silver</option><option>Grey</option><option>Red</option><option>Blue</option><option>Brown</option><option>Beige</option><option>Golden</option><option>Green</option><option>Orange</option><option>Yellow</option><option>Maroon</option><option>Other</option></select></label>
+<label>Owner<select id="aOwner"><option>1st Owner</option><option>2nd Owner</option><option>3rd Owner</option><option>4th Owner+</option></select></label>
+<label>Price (₹)<input id="aPrice" inputmode="numeric" required></label><label>Status<select id="aStatus"><option>AVAILABLE</option><option>SOLD</option></select></label>
+<label class="full">Features / Notes<textarea id="aNotes" rows="3" placeholder="Service history, features, papers, etc."></textarea></label></div></section>
+<div class="wizard-actions" style="position:sticky;bottom:0;background:#fff;padding:10px 0;z-index:2"><a class="btn cancel-btn" href="#addPagePhotos">↑ BACK TO PHOTOS</a><button type="submit" class="btn red">SAVE &amp; PUBLISH</button></div>
+</div></form></div></div>
+
+<div class="modal-backdrop" id="editModal"><div class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="editTitle"><h3 id="editTitle">Edit Car</h3>
+<form id="editForm" onsubmit="saveEdit(event)"><div class="edit-form">
+<label>Brand / Model<input id="eName" required></label><label>Year<input id="eYear" inputmode="numeric"></label><label>Kilometres<input id="eKm" inputmode="numeric"></label><label>Fuel<select id="eFuel"><option>Petrol</option><option>Diesel</option><option>CNG</option><option>Electric</option></select></label><label>Transmission<input id="eTrans"></label><label>Price (₹)<input id="ePrice" inputmode="numeric" required></label><label>Status<select id="eStatus"><option>AVAILABLE</option><option>SOLD</option></select></label><label>Photo URL<input id="ePhoto" placeholder="https://... or images/photo.jpg"></label>
+</div><div class="edit-actions"><button type="button" class="btn cancel-btn" onclick="closeEdit()">CANCEL</button><button type="submit" class="btn red">SAVE CHANGES</button></div></form></div></div>
+
+<script>
+let editingCard=null;
+const carCatalog={
+"Maruti Suzuki":{"Swift":["LXI","VXI","VXI AMT","VDI","VDI AMT","ZXI","ZXI AMT","ZDI","ZDI AMT","Other / Custom"],"Brezza":["LXI","VXI","ZXI","ZDI+","Other / Custom"],"Celerio":["VXI","ZXI","Other / Custom"],"Baleno":["Sigma","Delta","Zeta","Alpha","Other / Custom"],"Dzire":["LXI","VXI","ZXI","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Hyundai":{"Creta":["E","EX","S","S(O)","SX","SX(O)","SX Tech","SX Executive","Other / Custom"],"i20":["Magna","Sportz","Asta","Other / Custom"],"Venue":["E","S","SX","SX(O)","Other / Custom"],"Verna":["EX","S","SX","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Toyota":{"Innova Crysta":["G","GX","GX+","VX","VX Limited","ZX","ZX 7 STR","ZX 8 STR","Other / Custom"],"Innova":["G","V","VX","Other / Custom"],"Fortuner":["4x2","4x4","Other / Custom"],"Glanza":["E","S","G","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Honda":{"City":["S","V","VX","ZX","V CVT","VX CVT","ZX CVT","Other / Custom"],"Amaze":["E","S","VX","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Tata":{"Nexon":["XE","XM","XZ","XZ+","XZ+ Lux","Creative","Fearless","Other / Custom"],"Harrier":["XZA","XZ","XZ+","Other / Custom"],"Punch":["Pure","Adventure","Accomplished","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Mahindra":{"Scorpio":["S3","S5","S7","S9","S11","N4","N8","N10","N10 R","Other / Custom"],"XUV500":["W5","W7","W9","Other / Custom"],"Thar":["AX","LX","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Volkswagen":{"Virtus":["Comfortline","Highline","Topline","GT","GT Plus","GT Edge","Other / Custom"],"Polo":["Trendline","Comfortline","Highline","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Skoda":{"Slavia":["Active","Ambition","Style","Other / Custom"],"Rapid":["Active","Ambition","Style","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Audi":{"A3":["Premium","Premium Plus","Technology","Other / Custom"],"A4":["Premium","Premium Plus","Technology","Other / Custom"],"Q3":["Premium","Premium Plus","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"BMW":{"3 Series":["320d","330i","Other / Custom"],"5 Series":["520d","530i","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Mercedes-Benz":{"C-Class":["C200","C220d","Other / Custom"],"E-Class":["E200","E220d","Other / Custom"],"Other / Custom":["Other / Custom"]},
+"Other / Custom":{"Other / Custom":["Other / Custom"]}};
+const SUPABASE_URL='https://koymjnikiqulfahxncxy.supabase.co';
+const SUPABASE_KEY='sb_publishable_0LkQGkVLUOwVbDRKeQNxNA_sONhPNKB';
+async function supabaseRequest(path,options={}){
+  const res=await fetch(SUPABASE_URL+'/rest/v1/'+path,{...options,headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':'application/json',...(options.headers||{})}});
+  const text=await res.text();
+  let data=null;try{data=text?JSON.parse(text):null;}catch(e){data=text;}
+  if(!res.ok){throw new Error((data&&data.message)||('Supabase request failed: '+res.status));}
+  return data;
+}
+function supabaseRowToData(r){
+  const name=[r.brand,r.model,r.variant].filter(Boolean).join(' ')||'Car';
+  const km=r.km_driven??r.mileage??'';
+  return {id:r.id,name,brand:r.brand||'',model:r.model||'',variant:r.variant||'',year:r.year||'',km,fuel:r.fuel_type||'',trans:r.transmission||'',colour:r.color||'',owner:'',price:Number(r.price||0),status:'AVAILABLE',notes:r.description||'',photo:r.image_url||'',photos:r.image_url?{main:r.image_url}: {}};
+}
+function renderSupabaseCar(d){
+  if(document.querySelector('.car-card[data-supabase-id="'+CSS.escape(String(d.id))+'"]'))return;
+  const card=document.createElement('article');card.className='car-card';card.dataset.id='supabase_'+d.id;card.dataset.supabaseId=d.id;card.dataset.supabaseId=d.id;card.dataset.price=d.price;
+  card.innerHTML='<div class="car-photo">'+(d.photo?'<img class="main-car-image" src="'+safe(d.photo)+'" alt="'+safe(d.name)+'">':'<div class="coming">PHOTO</div>')+'<span class="badge">AVAILABLE</span></div><div class="thumbs"></div><div class="car-info"><h3>'+safe(d.name)+'</h3><p class="meta">'+safe(d.year||'—')+' • '+safe(d.km||'—')+' km • '+safe(d.fuel||'—')+'</p><p class="meta">'+safe(d.trans||'—')+' • '+safe(d.colour||'')+'</p><div class="price">₹'+Number(d.price).toLocaleString('en-IN')+'</div><div class="actions"><a class="btn dark" href="#">WhatsApp</a><button class="edit-btn" onclick="openEdit(this)">✏️ Edit</button><button class="delete-btn" onclick="deleteCar(this)">🗑️ Delete</button></div></div>';
+  document.getElementById('carGrid').appendChild(card);updateCardPhotos(card,d.photos);updateWhatsApp(card,d.name);addFullDetails(card,d);
+}
+async function loadSupabaseCars(){
+  try{
+    const rows=await supabaseRequest('cars?select=*&order=id.asc');
+    (rows||[]).forEach(r=>renderSupabaseCar(supabaseRowToData(r)));
+    filterCars();
+    const empty=document.getElementById('emptyStock');if((rows||[]).length)empty?.remove();
+  }catch(err){console.error(err);alert('Supabase connection failed while loading cars. Please check the table permissions (RLS) and try again.');}
+}
+function toggleAdmin(){document.getElementById("carGrid").classList.toggle("admin-on");const on=document.getElementById("carGrid").classList.contains("admin-on");document.getElementById("adminToggle").textContent=on?"🔓 EXIT EDIT MODE":"🔐 ADMIN EDIT MODE";}
+function safe(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function updateWhatsApp(card,name){const a=card.querySelector(".actions a");if(a)a.href="https://wa.me/919420031833?text="+encodeURIComponent("Hi Shree Motors, I am interested in "+name);}
+function updateCardPhotos(card,photos){const box=card.querySelector('.car-photo');const badgeText=card.querySelector('.badge')?.innerText||'AVAILABLE';const arr=[photos?.main,photos?.front,photos?.rear,photos?.side,photos?.interior,photos?.dashboard,...(photos?.other||[])].filter(Boolean);if(arr.length){box.innerHTML='<img class="main-car-image" src="'+arr[0]+'" alt="'+safe(card.querySelector('h3').innerText)+'"><span class="badge">'+safe(badgeText)+'</span>';}let thumbs=card.querySelector('.thumbs');if(!thumbs){thumbs=document.createElement('div');thumbs.className='thumbs';card.insertBefore(thumbs,card.querySelector('.car-info'));}thumbs.innerHTML=arr.map((src,i)=>'<button type="button" class="photo-thumb-btn'+(i===0?' selected':'')+'" data-photo-index="'+i+'" aria-label="Show car photo '+(i+1)+'"><img src="'+src+'" alt="Car photo '+(i+1)+'"></button>').join('');thumbs.onclick=function(e){const btn=e.target.closest('.photo-thumb-btn');if(!btn)return;const idx=Number(btn.dataset.photoIndex);const main=card.querySelector('.main-car-image');if(main&&arr[idx])main.src=arr[idx];thumbs.querySelectorAll('.photo-thumb-btn').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');};}
+function addFullDetails(card,d){const info=card.querySelector('.car-info');if(!info)return;let old=info.querySelector('.full-details');if(old)old.remove();const box=document.createElement('div');box.className='full-details';box.innerHTML='<div class="detail-row"><b>Brand</b><span>'+safe(d.brand||'—')+'</span></div>'+'<div class="detail-row"><b>Model</b><span>'+safe(d.model||'—')+'</span></div>'+'<div class="detail-row"><b>Variant</b><span>'+safe(d.variant||'—')+'</span></div>'+'<div class="detail-row"><b>Owner</b><span>'+safe(d.owner||'—')+'</span></div>'+'<div class="detail-row"><b>Colour</b><span>'+safe(d.colour||'—')+'</span></div>'+'<div class="detail-row"><b>Features / Notes</b><span>'+safe(d.notes||'—')+'</span></div>';const btn=document.createElement('button');btn.type='button';btn.className='details-btn';btn.textContent='VIEW FULL DETAILS';btn.onclick=function(){const show=box.classList.toggle('show');btn.textContent=show?'HIDE DETAILS':'VIEW FULL DETAILS';};info.appendChild(btn);info.appendChild(box);}
+function openEdit(btn){editingCard=btn.closest('.car-card');const raw=localStorage.getItem('shreeMotorsCar_'+editingCard.dataset.id);const d=raw?JSON.parse(raw):null;const metas=editingCard.querySelectorAll('.meta');const parts=(metas[0]?.innerText||'').split('•').map(x=>x.trim());document.getElementById('eName').value=d?.name||editingCard.querySelector('h3').innerText.trim();document.getElementById('eYear').value=d?.year||((parts[0]&&parts[0]!=='—')?parts[0]:'');document.getElementById('eKm').value=d?.km||((parts[1]&&parts[1]!=='—')?parts[1].replace(/\D/g,''):'');document.getElementById('eFuel').value=d?.fuel||((parts[2]||'Petrol').split('/')[0].trim());document.getElementById('eTrans').value=d?.trans||metas[1]?.innerText.trim()||'';document.getElementById('ePrice').value=d?.price||editingCard.dataset.price||'';document.getElementById('eStatus').value=d?.status||'AVAILABLE';document.getElementById('ePhoto').value=d?.photo||editingCard.querySelector('.car-photo img')?.getAttribute('src')||'';document.getElementById('editModal').classList.add('show');}
+function closeEdit(){document.getElementById('editModal').classList.remove('show');editingCard=null;}
+async function saveEdit(e){e.preventDefault();if(!editingCard)return;const name=document.getElementById('eName').value.trim(),year=document.getElementById('eYear').value.trim(),km=document.getElementById('eKm').value.trim(),fuel=document.getElementById('eFuel').value,trans=document.getElementById('eTrans').value.trim(),price=Number(document.getElementById('ePrice').value),status=document.getElementById('eStatus').value,photo=document.getElementById('ePhoto').value.trim();
+  if(editingCard.dataset.supabaseId){
+    const rowId=editingCard.dataset.supabaseId;
+    const parts=name.split(/\s+/);const brand=parts[0]||'',model=parts[1]||'',variant=parts.slice(2).join(' ');
+    try{await supabaseRequest('cars?id=eq.'+encodeURIComponent(rowId),{method:'PATCH',headers:{'Prefer':'return=minimal'},body:JSON.stringify({brand,model,variant,year:year?Number(year):null,fuel_type:fuel,transmission:trans,price,mileage:km?Number(km):null,km_driven:km?Number(km):null,image_url:photo||null})});
+      editingCard.querySelector('h3').innerText=name;editingCard.querySelectorAll('.meta')[0].innerText=(year||'—')+' • '+(km||'—')+' km • '+fuel;editingCard.querySelectorAll('.meta')[1].innerText=trans||'—';editingCard.querySelector('.price').innerText='₹'+price.toLocaleString('en-IN');editingCard.dataset.price=price;const badge=editingCard.querySelector('.badge');badge.innerText=status;badge.style.background=status==='SOLD'?'#111':'var(--red)';const img=editingCard.querySelector('.car-photo img');if(img&&photo)img.src=photo;updateWhatsApp(editingCard,name);closeEdit();filterCars();alert('Car updated in Supabase successfully!');
+    }catch(err){console.error(err);alert('Update failed: '+err.message);}return;
+  }
+  editingCard.querySelector('h3').innerText=name;editingCard.querySelectorAll('.meta')[0].innerText=(year||'—')+' • '+(km||'—')+' km • '+fuel;editingCard.querySelectorAll('.meta')[1].innerText=trans||'—';editingCard.querySelector('.price').innerText='₹'+price.toLocaleString('en-IN');editingCard.dataset.price=price;const badge=editingCard.querySelector('.badge');badge.innerText=status;badge.style.background=status==='SOLD'?'#111':'var(--red)';const img=editingCard.querySelector('.car-photo img');if(img&&photo)img.src=photo;localStorage.setItem('shreeMotorsCar_'+editingCard.dataset.id,JSON.stringify({name,year,km,fuel,trans,price,status,photo}));updateWhatsApp(editingCard,name);closeEdit();filterCars();
+}
+
+function openAddCar(){
+  document.getElementById('addModal').classList.add('show');
+  document.getElementById('addForm').reset();
+  document.getElementById('allPhotoPreview').innerHTML='<span>No photos selected</span>';
+  populateAddBrands();
+  document.getElementById('addPagePhotos').style.display='block';
+  document.getElementById('addPageDetails').style.display='block';
+  document.getElementById('addModal').scrollTop=0;
+}
+function closeAddCar(){
+  document.getElementById('addModal').classList.remove('show');
+}
+function populateAddBrands(){
+  const s=document.getElementById('aBrand');
+  if(!s || s.options.length>1)return;
+  s.innerHTML='<option value="">Select Brand</option>'+Object.keys(carCatalog).map(b=>'<option>'+safe(b)+'</option>').join('');
+  updateAddModels();
+}
+function updateAddModels(){
+  const brand=document.getElementById('aBrand').value;
+  const s=document.getElementById('aModel');
+  const v=document.getElementById('aVariant');
+  const models=carCatalog[brand]||{};
+  s.innerHTML='<option value="">Select Model</option>'+Object.keys(models).map(m=>'<option>'+safe(m)+'</option>').join('');
+  v.innerHTML='<option value="">Select Variant</option>';
+}
+function updateAddVariants(){
+  const brand=document.getElementById('aBrand').value;
+  const model=document.getElementById('aModel').value;
+  const v=document.getElementById('aVariant');
+  const variants=(carCatalog[brand]||{})[model]||[];
+  v.innerHTML='<option value="">Select Variant</option>'+variants.map(x=>'<option>'+safe(x)+'</option>').join('');
+}
+function previewAllPhotos(input){
+  const box=document.getElementById('allPhotoPreview');
+  const files=[...(input.files||[])];
+  if(!files.length){box.innerHTML='<span>No photos selected</span>';return;}
+  box.innerHTML=files.map((f,i)=>'<div class="photo-item"><img src="'+URL.createObjectURL(f)+'"><div class="photo-label">'+(i===0?'MAIN':('PHOTO '+(i+1)))+'</div></div>').join('');
+}
+async function saveNewCar(e){
+  e.preventDefault();
+  const files=[...(document.getElementById('aPhotosAll').files||[])];
+  if(!files.length){alert('Please select car photos.');return;}
+  const brand=document.getElementById('aBrand').value;
+  const model=document.getElementById('aModel').value;
+  const variant=document.getElementById('aVariant').value;
+  const year=document.getElementById('aYear').value;
+  const km=document.getElementById('aKm').value.trim();
+  const fuel=document.getElementById('aFuel').value;
+  const trans=document.getElementById('aTrans').value;
+  const colour=document.getElementById('aColour').value;
+  const owner=document.getElementById('aOwner').value;
+  const price=Number(document.getElementById('aPrice').value);
+  const status=document.getElementById('aStatus').value;
+  const notes=document.getElementById('aNotes').value.trim();
+  if(!brand||!model||!variant||!year||!km||!price){alert('Please fill all required car details.');return;}
+
+  // Store selected photos locally for this device; this keeps the existing
+  // workflow functional without changing the Supabase schema.
+  const dataUrls=[];
+  for(const f of files){
+    const dataUrl=await new Promise((resolve,reject)=>{
+      const r=new FileReader(); r.onload=()=>resolve(r.result); r.onerror=reject; r.readAsDataURL(f);
+    });
+    dataUrls.push(dataUrl);
+  }
+  const photos={main:dataUrls[0],other:dataUrls.slice(1)};
+  const id='new_'+Date.now();
+  const d={id,name:[brand,model,variant].filter(Boolean).join(' '),brand,model,variant,year,km,fuel,trans,colour,owner,price,status,notes,photos,photo:dataUrls[0]};
+  localStorage.setItem('shreeMotorsCar_'+id,JSON.stringify(d));
+
+  const card=document.createElement('article');
+  card.className='car-card'; card.dataset.id=id; card.dataset.price=price;
+  card.innerHTML='<div class="car-photo"><img class="main-car-image" src="'+photos.main+'" alt="'+safe(d.name)+'"><span class="badge">'+safe(status)+'</span></div><div class="thumbs"></div><div class="car-info"><h3>'+safe(d.name)+'</h3><p class="meta">'+safe(year)+' • '+safe(km)+' km • '+safe(fuel)+'</p><p class="meta">'+safe(trans)+' • '+safe(colour)+'</p><div class="price">₹'+price.toLocaleString('en-IN')+'</div><div class="actions"><a class="btn dark" href="#">WhatsApp</a><button class="edit-btn" onclick="openEdit(this)">✏️ Edit</button><button class="delete-btn" onclick="deleteCar(this)">🗑️ Delete</button></div></div>';
+  document.getElementById('carGrid').appendChild(card);
+  updateCardPhotos(card,photos); updateWhatsApp(card,d.name); addFullDetails(card,d);
+  document.getElementById('emptyStock')?.remove();
+  closeAddCar(); filterCars();
+  alert('Car added successfully on this device.');
+}
+
+async function deleteCar(btn){const card=btn.closest('.car-card'),name=card.querySelector('h3').innerText;if(!confirm('Delete '+name+' from the car list?'))return;const id=card.dataset.id;
+  if(card.dataset.supabaseId){try{await supabaseRequest('cars?id=eq.'+encodeURIComponent(card.dataset.supabaseId),{method:'DELETE'});card.remove();filterCars();alert('Car deleted from Supabase successfully!');}catch(err){console.error(err);alert('Delete failed: '+err.message);}return;}
+  localStorage.setItem('shreeMotorsDeleted_'+id,'1');localStorage.removeItem('shreeMotorsCar_'+id);card.remove();filterCars();
+}
+function loadSavedEdits(){document.querySelectorAll('.car-card[data-id]').forEach(card=>{const id=card.dataset.id;if(localStorage.getItem('shreeMotorsDeleted_'+id)==='1'){card.remove();return;}const raw=localStorage.getItem('shreeMotorsCar_'+id);if(!raw)return;try{const d=JSON.parse(raw);card.querySelector('h3').innerText=d.name;card.querySelectorAll('.meta')[0].innerText=(d.year||'—')+' • '+(d.km||'—')+' km • '+d.fuel;card.querySelectorAll('.meta')[1].innerText=d.trans||'—';card.querySelector('.price').innerText='₹'+Number(d.price).toLocaleString('en-IN');card.dataset.price=d.price;const b=card.querySelector('.badge');b.innerText=d.status;b.style.background=d.status==='SOLD'?'#111':'var(--red)';if(d.photo){const img=card.querySelector('.car-photo img');if(img)img.src=d.photo;}updateWhatsApp(card,d.name);}catch(e){}});}
+function filterCars(){
+  const brand=document.getElementById('brand').value.toLowerCase();
+  const fuel=document.getElementById('fuel').value.toLowerCase();
+  const range=document.getElementById('priceRange').value;
+  let min=0,max=Infinity;
+  if(range!=='all'){
+    if(range.endsWith('+')){min=Number(range.slice(0,-1));}
+    else{const parts=range.split('-');min=Number(parts[0]);max=Number(parts[1]);}
+  }
+  let visible=0;
+  document.querySelectorAll('.car-card').forEach(card=>{
+    const n=card.querySelector('h3')?.innerText.toLowerCase()||'';
+    const meta=[...card.querySelectorAll('.meta')].map(x=>x.innerText.toLowerCase()).join(' ');
+    const price=Number(card.dataset.price)||0;
+    const badge=(card.querySelector('.badge')?.innerText||'AVAILABLE').toUpperCase();
+    const matches=(badge!=='SOLD')&&(brand==='all'||n.includes(brand))&&(fuel==='all'||meta.includes(fuel))&&price>=min&&price<=max;
+    card.style.display=matches?'block':'none';
+    if(matches)visible++;
+  });
+  let msg=document.getElementById('filterEmpty');
+  if(!msg){
+    msg=document.createElement('div');
+    msg.id='filterEmpty';
+    msg.className='empty-stock';
+    msg.innerHTML='<div class="empty-icon">🔎</div><h3>No Cars Match Your Search</h3><p>Try another brand, fuel type or price range.</p>';
+    document.getElementById('carGrid').appendChild(msg);
+  }
+  msg.style.display=visible?'none':'block';
+}
+
+document.getElementById('addModal').addEventListener('click',e=>{if(e.target.id==='addModal')closeAddCar();});document.getElementById('editModal').addEventListener('click',e=>{if(e.target.id==='editModal')closeEdit();});
+function loadAddedCars(){Object.keys(localStorage).filter(k=>k.startsWith('shreeMotorsCar_new_')).forEach(k=>{try{const d=JSON.parse(localStorage.getItem(k));if(!d||!d.name)return;if(document.querySelector('.car-card[data-id="'+k.replace('shreeMotorsCar_','')+'"]'))return;const id=k.replace('shreeMotorsCar_',''),card=document.createElement('article');card.className='car-card';card.dataset.id=id;card.dataset.price=d.price;card.innerHTML='<div class="car-photo">'+(d.photos?.main?'<img src="'+d.photos.main+'" alt="'+safe(d.name)+'">':'<div class="coming">PHOTO</div>')+'<span class="badge">'+safe(d.status||'AVAILABLE')+'</span></div><div class="thumbs"></div><div class="car-info"><h3>'+safe(d.name)+'</h3><p class="meta">'+safe(d.year||'—')+' • '+safe(d.km||'—')+' km • '+safe(d.fuel||'—')+'</p><p class="meta">'+safe(d.trans||'—')+' • '+safe(d.colour||'')+'</p><div class="price">₹'+Number(d.price).toLocaleString('en-IN')+'</div><div class="actions"><a class="btn dark" href="#">WhatsApp</a><button class="edit-btn" onclick="openEdit(this)">✏️ Edit</button><button class="delete-btn" onclick="deleteCar(this)">🗑️ Delete</button></div></div>';document.getElementById('carGrid').appendChild(card);updateCardPhotos(card,d.photos||{main:d.photo});updateWhatsApp(card,d.name);addFullDetails(card,d);}catch(e){}});}
+loadSavedEdits();loadAddedCars();loadSupabaseCars();
+(function(){const card=document.querySelector('.car-card[data-id="virtus_highline_plus_2023"]');if(card){const empty=document.getElementById('emptyStock');if(empty)empty.remove();updateCardPhotos(card,{main:'images/virtus-01-front.jpeg',front:'images/virtus-02-front-angle.jpeg',rear:'images/virtus-04-rear-angle.jpeg',side:'images/virtus-07-side.jpeg',interior:'images/virtus-09-interior.jpeg',dashboard:'images/virtus-10-dashboard.jpeg',other:['images/virtus-03-front-left.jpeg','images/virtus-05-rear-left.jpeg','images/virtus-06-rear.jpeg','images/virtus-08-tyre.jpeg']});addFullDetails(card,{brand:'Volkswagen',model:'August 2023',variant:'Virtus Highline Plus 6-Speed',owner:'Single Owner',colour:'Dark Grey',notes:'41,000 km • All New Tyres — 100% • Stepney unused • Button Start • Airbags • Alloy Wheels • ABS • Infotainment with Camera • Auto Sensor Headlamps and Wipers • Company Warranty till August 2028.'});updateWhatsApp(card,'Volkswagen Virtus Highline Plus 6-Speed');}})();
+document.querySelectorAll('.car-card[data-id]').forEach(function(card){if(card.querySelector('.full-details'))return;const h=card.querySelector('h3')?.innerText||'';const metas=[...card.querySelectorAll('.meta')].map(x=>x.innerText).join(' • ');const price=card.querySelector('.price')?.innerText||'';addFullDetails(card,{name:h,year:metas,notes:'Contact Shree Motors for complete vehicle details.',price});});
+</script></body></html>
