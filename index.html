@@ -144,6 +144,88 @@ async function saveEdit(e){e.preventDefault();if(!editingCard)return;const name=
   }
   editingCard.querySelector('h3').innerText=name;editingCard.querySelectorAll('.meta')[0].innerText=(year||'—')+' • '+(km||'—')+' km • '+fuel;editingCard.querySelectorAll('.meta')[1].innerText=trans||'—';editingCard.querySelector('.price').innerText='₹'+price.toLocaleString('en-IN');editingCard.dataset.price=price;const badge=editingCard.querySelector('.badge');badge.innerText=status;badge.style.background=status==='SOLD'?'#111':'var(--red)';const img=editingCard.querySelector('.car-photo img');if(img&&photo)img.src=photo;localStorage.setItem('shreeMotorsCar_'+editingCard.dataset.id,JSON.stringify({name,year,km,fuel,trans,price,status,photo}));updateWhatsApp(editingCard,name);closeEdit();filterCars();
 }
+
+function openAddCar(){
+  document.getElementById('addModal').classList.add('show');
+  document.getElementById('addForm').reset();
+  document.getElementById('allPhotoPreview').innerHTML='<span>No photos selected</span>';
+  populateAddBrands();
+  document.getElementById('addPagePhotos').style.display='block';
+  document.getElementById('addPageDetails').style.display='block';
+  document.getElementById('addModal').scrollTop=0;
+}
+function closeAddCar(){
+  document.getElementById('addModal').classList.remove('show');
+}
+function populateAddBrands(){
+  const s=document.getElementById('aBrand');
+  if(!s || s.options.length>1)return;
+  s.innerHTML='<option value="">Select Brand</option>'+Object.keys(carCatalog).map(b=>'<option>'+safe(b)+'</option>').join('');
+  updateAddModels();
+}
+function updateAddModels(){
+  const brand=document.getElementById('aBrand').value;
+  const s=document.getElementById('aModel');
+  const v=document.getElementById('aVariant');
+  const models=carCatalog[brand]||{};
+  s.innerHTML='<option value="">Select Model</option>'+Object.keys(models).map(m=>'<option>'+safe(m)+'</option>').join('');
+  v.innerHTML='<option value="">Select Variant</option>';
+}
+function updateAddVariants(){
+  const brand=document.getElementById('aBrand').value;
+  const model=document.getElementById('aModel').value;
+  const v=document.getElementById('aVariant');
+  const variants=(carCatalog[brand]||{})[model]||[];
+  v.innerHTML='<option value="">Select Variant</option>'+variants.map(x=>'<option>'+safe(x)+'</option>').join('');
+}
+function previewAllPhotos(input){
+  const box=document.getElementById('allPhotoPreview');
+  const files=[...(input.files||[])];
+  if(!files.length){box.innerHTML='<span>No photos selected</span>';return;}
+  box.innerHTML=files.map((f,i)=>'<div class="photo-item"><img src="'+URL.createObjectURL(f)+'"><div class="photo-label">'+(i===0?'MAIN':('PHOTO '+(i+1)))+'</div></div>').join('');
+}
+async function saveNewCar(e){
+  e.preventDefault();
+  const files=[...(document.getElementById('aPhotosAll').files||[])];
+  if(!files.length){alert('Please select car photos.');return;}
+  const brand=document.getElementById('aBrand').value;
+  const model=document.getElementById('aModel').value;
+  const variant=document.getElementById('aVariant').value;
+  const year=document.getElementById('aYear').value;
+  const km=document.getElementById('aKm').value.trim();
+  const fuel=document.getElementById('aFuel').value;
+  const trans=document.getElementById('aTrans').value;
+  const colour=document.getElementById('aColour').value;
+  const owner=document.getElementById('aOwner').value;
+  const price=Number(document.getElementById('aPrice').value);
+  const status=document.getElementById('aStatus').value;
+  const notes=document.getElementById('aNotes').value.trim();
+  if(!brand||!model||!variant||!year||!km||!price){alert('Please fill all required car details.');return;}
+
+  // Store selected photos locally for this device; this keeps the existing
+  // workflow functional without changing the Supabase schema.
+  const dataUrls=[];
+  for(const f of files){
+    const dataUrl=await new Promise((resolve,reject)=>{
+      const r=new FileReader(); r.onload=()=>resolve(r.result); r.onerror=reject; r.readAsDataURL(f);
+    });
+    dataUrls.push(dataUrl);
+  }
+  const photos={main:dataUrls[0],other:dataUrls.slice(1)};
+  const id='new_'+Date.now();
+  const d={id,name:[brand,model,variant].filter(Boolean).join(' '),brand,model,variant,year,km,fuel,trans,colour,owner,price,status,notes,photos,photo:dataUrls[0]};
+  localStorage.setItem('shreeMotorsCar_'+id,JSON.stringify(d));
+
+  const card=document.createElement('article');
+  card.className='car-card'; card.dataset.id=id; card.dataset.price=price;
+  card.innerHTML='<div class="car-photo"><img class="main-car-image" src="'+photos.main+'" alt="'+safe(d.name)+'"><span class="badge">'+safe(status)+'</span></div><div class="thumbs"></div><div class="car-info"><h3>'+safe(d.name)+'</h3><p class="meta">'+safe(year)+' • '+safe(km)+' km • '+safe(fuel)+'</p><p class="meta">'+safe(trans)+' • '+safe(colour)+'</p><div class="price">₹'+price.toLocaleString('en-IN')+'</div><div class="actions"><a class="btn dark" href="#">WhatsApp</a><button class="edit-btn" onclick="openEdit(this)">✏️ Edit</button><button class="delete-btn" onclick="deleteCar(this)">🗑️ Delete</button></div></div>';
+  document.getElementById('carGrid').appendChild(card);
+  updateCardPhotos(card,photos); updateWhatsApp(card,d.name); addFullDetails(card,d);
+  document.getElementById('emptyStock')?.remove();
+  closeAddCar(); filterCars();
+  alert('Car added successfully on this device.');
+}
+
 async function deleteCar(btn){const card=btn.closest('.car-card'),name=card.querySelector('h3').innerText;if(!confirm('Delete '+name+' from the car list?'))return;const id=card.dataset.id;
   if(card.dataset.supabaseId){try{await supabaseRequest('cars?id=eq.'+encodeURIComponent(card.dataset.supabaseId),{method:'DELETE'});card.remove();filterCars();alert('Car deleted from Supabase successfully!');}catch(err){console.error(err);alert('Delete failed: '+err.message);}return;}
   localStorage.setItem('shreeMotorsDeleted_'+id,'1');localStorage.removeItem('shreeMotorsCar_'+id);card.remove();filterCars();
@@ -177,11 +259,10 @@ function filterCars(){
     document.getElementById('carGrid').appendChild(msg);
   }
   msg.style.display=visible?'none':'block';
-}catch(err){console.error(err);alert('Save failed: '+err.message+'\n\nIf this mentions RLS/policy, we will fix that next.');}finally{if(btn){btn.disabled=false;btn.textContent='SAVE & PUBLISH';}}}
+}
 
 document.getElementById('addModal').addEventListener('click',e=>{if(e.target.id==='addModal')closeAddCar();});document.getElementById('editModal').addEventListener('click',e=>{if(e.target.id==='editModal')closeEdit();});
 function loadAddedCars(){Object.keys(localStorage).filter(k=>k.startsWith('shreeMotorsCar_new_')).forEach(k=>{try{const d=JSON.parse(localStorage.getItem(k));if(!d||!d.name)return;if(document.querySelector('.car-card[data-id="'+k.replace('shreeMotorsCar_','')+'"]'))return;const id=k.replace('shreeMotorsCar_',''),card=document.createElement('article');card.className='car-card';card.dataset.id=id;card.dataset.price=d.price;card.innerHTML='<div class="car-photo">'+(d.photos?.main?'<img src="'+d.photos.main+'" alt="'+safe(d.name)+'">':'<div class="coming">PHOTO</div>')+'<span class="badge">'+safe(d.status||'AVAILABLE')+'</span></div><div class="thumbs"></div><div class="car-info"><h3>'+safe(d.name)+'</h3><p class="meta">'+safe(d.year||'—')+' • '+safe(d.km||'—')+' km • '+safe(d.fuel||'—')+'</p><p class="meta">'+safe(d.trans||'—')+' • '+safe(d.colour||'')+'</p><div class="price">₹'+Number(d.price).toLocaleString('en-IN')+'</div><div class="actions"><a class="btn dark" href="#">WhatsApp</a><button class="edit-btn" onclick="openEdit(this)">✏️ Edit</button><button class="delete-btn" onclick="deleteCar(this)">🗑️ Delete</button></div></div>';document.getElementById('carGrid').appendChild(card);updateCardPhotos(card,d.photos||{main:d.photo});updateWhatsApp(card,d.name);addFullDetails(card,d);}catch(e){}});}
 loadSavedEdits();loadAddedCars();loadSupabaseCars();
 (function(){const card=document.querySelector('.car-card[data-id="virtus_highline_plus_2023"]');if(card){const empty=document.getElementById('emptyStock');if(empty)empty.remove();updateCardPhotos(card,{main:'images/virtus-01-front.jpeg',front:'images/virtus-02-front-angle.jpeg',rear:'images/virtus-04-rear-angle.jpeg',side:'images/virtus-07-side.jpeg',interior:'images/virtus-09-interior.jpeg',dashboard:'images/virtus-10-dashboard.jpeg',other:['images/virtus-03-front-left.jpeg','images/virtus-05-rear-left.jpeg','images/virtus-06-rear.jpeg','images/virtus-08-tyre.jpeg']});addFullDetails(card,{brand:'Volkswagen',model:'August 2023',variant:'Virtus Highline Plus 6-Speed',owner:'Single Owner',colour:'Dark Grey',notes:'41,000 km • All New Tyres — 100% • Stepney unused • Button Start • Airbags • Alloy Wheels • ABS • Infotainment with Camera • Auto Sensor Headlamps and Wipers • Company Warranty till August 2028.'});updateWhatsApp(card,'Volkswagen Virtus Highline Plus 6-Speed');}})();
-document.querySelectorAll('.car-card[data-id]').forEach(function(card){if(card.querySelector('.full-details'))return;const h=card.querySelector('h3')?.innerText||'';const metas=[...card.querySelectorAll('.meta')].map(x=>x.innerText).join(' • ');const price=card.querySelector('.price')?.innerText||'';addFullDetails(card,{name:h,year:metas,notes:'Contact Shree Motors for complete vehicle details.',price});});
-</script></body></html>
+document.querySelectorAll('.car-card[data-id]').forEach(function(card){if(card.querySelector('.full-details'))return;const h=card.querySelector('h3')?.innerText||'';const metas=[...card.querySelectorAll('.meta')].map(x=>x.innerText).join(' • ');const price=card.querySelector('.price')?.innerText||'';addFullDetails(card,{name:h,year:metas,notes:'Contact Shree Motors for complete vehicle details.',price});});</script></body></html>
